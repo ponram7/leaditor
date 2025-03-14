@@ -35,46 +35,36 @@ Ensure you have the following installed:
    cd leaditor
 Set up a virtual environment (optional but recommended):
 
-bash
-Copy
+```bash
+# Set up a virtual environment (optional but recommended)
 python -m venv venv
-Activate the virtual environment:
 
-On Windows:
-
-bash
-Copy
+# Activate the virtual environment
+# On Windows:
 .\venv\Scripts\activate
-On macOS/Linux:
-
-bash
-Copy
+# On macOS/Linux:
 source venv/bin/activate
-Install the dependencies:
 
-bash
-Copy
+# Install the dependencies
 pip install -r requirements.txt
-Make migrations to create the database schema:
 
-bash
-Copy
+# Make migrations to create the database schema
 python manage.py makemigrations
 python manage.py migrate
-Create a superuser to access the Django admin panel:
 
-bash
-Copy
+# Create a superuser to access the Django admin panel
 python manage.py createsuperuser
-Run the development server:
 
-bash
-Copy
+# Run the development server
 python manage.py runserver
-Access the app:
 
-Open your browser and navigate to http://127.0.0.1:8000/
-The Django admin panel is available at http://127.0.0.1:8000/admin/
+# Access the app
+# Open your browser and navigate to:
+http://127.0.0.1:8000/
+
+# The Django admin panel is available at:
+http://127.0.0.1:8000/admin/
+
 
 Structure
 ```bash
