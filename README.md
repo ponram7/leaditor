@@ -6,7 +6,7 @@ Leaditor is a web-based application designed for managing leads, primarily for b
 
 - **Lead Management**: Create, view, and update lead information (e.g., name, email, phone, company, and status).
 - **Dynamic UI**: The application is powered by HTMX, allowing dynamic interactions like loading and updating lead data without page reloads.
-- **Responsive Design**: Tailwind CSS ensures the app is fully responsive and provides a modern user interface.
+- **Responsive Design**: Using bootstrap ensures the app is fully responsive and provides a modern user interface.
 - **Admin Interface**: Easily manage leads via the built-in Django admin panel.
 - **SQLite Database**: Uses SQLite for easy local development and testing.
 
