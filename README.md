@@ -75,32 +75,29 @@ Access the app:
 
 Open your browser and navigate to http://127.0.0.1:8000/
 The Django admin panel is available at http://127.0.0.1:8000/admin/
-Optional: Tailwind CSS & HTMX CDN
-Tailwind CSS and HTMX are included via CDN for simplicity. However, if you want to use them locally, you can follow the official docs to configure them in your static files.
 
 Structure
-Project Structure
-bash
-Copy
-leaditor/
-├── manage.py              # Django project management script
-├── leaditor/              # Main Django project folder
+```bash
+leeditor/
+├── manage.py                # Django project management script
+├── leaditor/                # Main Django project folder
 │   ├── __init__.py
 │   ├── asgi.py
-│   ├── settings.py        # Project settings
-│   ├── urls.py            # URL routing
+│   ├── settings.py          # Project settings
+│   ├── urls.py              # URL routing
 │   ├── wsgi.py
-├── leads/                 # Django app for managing leads
+├── leads/                   # Django app for managing leads
 │   ├── __init__.py
-│   ├── admin.py           # Register models for admin interface
+│   ├── admin.py             # Register models for admin interface
 │   ├── apps.py
-│   ├── forms.py           # Forms for handling lead data
-│   ├── models.py          # Database models
-│   ├── tests.py           # Unit tests for leads app
-│   ├── urls.py            # URL routing for leads app
-│   ├── views.py           # Views for handling lead actions
-│   ├── templates/         # HTML templates
-│   │   └── leads/         # Templates specific to the leads app
-│   ├── migrations/        # Database migrations
-├── db.sqlite3             # SQLite database file (can be replaced with PostgreSQL or MySQL)
-└── venv/                  # Virtual environment (not committed to version control)
+│   ├── forms.py             # Forms for handling lead data
+│   ├── models.py            # Database models
+│   ├── tests.py             # Unit tests for leads app
+│   ├── urls.py              # URL routing for leads app
+│   ├── views.py             # Views for handling lead actions
+│   ├── templates/           # HTML templates
+│   │   └── leads/           # Templates specific to the leads app
+│   ├── migrations/          # Database migrations
+├── db.sqlite3               # SQLite database file (can be replaced with PostgreSQL or MySQL)
+└── venv/                    # Virtual environment (not committed to version control)
+
