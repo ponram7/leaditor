@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lead Scoring Dashboard</title>
+    <!-- Bootstrap 4 CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- Custom Styles -->
+    <style>
+        :root {
+            --primary-color: #6f42c1; /* Purple */
+            --secondary-color: #d6b8f2; /* Light Purple */
+        }
+
+        .bg-primary {
+            background-color: var(--primary-color) !important;
+        }
+        .bg-secondary {
+            background-color: var(--secondary-color) !important;
+        }
+        .text-primary {
+            color: var(--primary-color) !important;
+        }
+        .text-secondary {
+            color: var(--secondary-color) !important;
+        }
+    </style>
+</head>
+<body class="bg-light">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">Lead Scoring</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Analytics</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Settings</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container mt-4">
+        <!-- Header -->
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1 class="h3">Lead Scoring Dashboard</h1>
+            <button class="btn btn-success" data-toggle="modal" data-target="#addLeadModal">Add New Lead</button>
+        </div>
+
+        <!-- Dashboard Cards -->
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card text-white bg-primary mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Leads</h5>
+                        <p class="card-text h4">150</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-white bg-secondary mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">High Priority Leads</h5>
+                        <p class="card-text h4">50</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-white bg-warning mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Top Industry</h5>
+                        <p class="card-text h4">Technology</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Analytics Charts Section -->
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        Website Visits Chart
+                    </div>
+                    <div class="card-body">
+                        <p>Placeholder for a chart. (Use a library like Chart.js)</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header bg-secondary text-white">
+                        Email Open Rate Chart
+                    </div>
+                    <div class="card-body">
+                        <p>Placeholder for a chart. (Use a library like Chart.js)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Leads Table -->
+        <div class="card mb-4">
+            <div class="card-header bg-primary text-white">
+                All Leads
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered table-hover">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Industry</th>
+                            <th>Website Visits</th>
+                            <th>Email Open Rate</th>
+                            <th>Score</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for lead in leads %}
+                        <tr>
+                            <td>{{ lead.name }}</td>
+                            <td>{{ lead.email }}</td>
+                            <td>{{ lead.industry }}</td>
+                            <td>{{ lead.website_visits }}</td>
+                            <td>{{ lead.email_open_rate }}</td>
+                            <td>{{ lead.score }}</td>
+                            <td>
+                                <button class="btn btn-sm btn-primary">Edit</button>
+                                <button class="btn btn-sm btn-danger">Delete</button>
+                            </td>
+                        </tr>
+                        {% empty %}
+                        <tr>
+                            <td colspan="7" class="text-center">No leads added yet</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Feedback Section -->
+        <div class="card">
+            <div class="card-header bg-secondary text-white">
+                Feedback
+            </div>
+            <div class="card-body">
+                <textarea class="form-control" rows="3" placeholder="Enter your feedback"></textarea>
+                <button class="btn btn-primary mt-3">Submit Feedback</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Lead Modal -->
+    <div class="modal fade" id="addLeadModal" tabindex="-1" aria-labelledby="addLeadModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addLeadModalLabel">Add New Lead</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="modal-body">
+                        {{ form.as_p }}
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Save Lead</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 4 JS and Dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
