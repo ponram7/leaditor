@@ -104,37 +104,3 @@ leaditor/
 │   ├── migrations/        # Database migrations
 ├── db.sqlite3             # SQLite database file (can be replaced with PostgreSQL or MySQL)
 └── venv/                  # Virtual environment (not committed to version control)
-
-
-Important Files:
-settings.py: Configuration for Django, including installed apps, middleware, and database settings.
-urls.py: URL routing for both the project and the leads app.
-models.py: Defines the Lead model to store lead data in the database.
-views.py: Contains the views for displaying, creating, and managing leads.
-admin.py: Registers the Lead model to the Django admin interface.
-Development Notes
-Adding New Leads: You can add new leads via the Django admin interface or by creating forms that are linked to your Lead model in the frontend views.
-HTMX: HTMX is used for adding interactivity to the app, such as dynamically loading leads or updating a lead’s status without requiring full-page refreshes.
-Tailwind CSS: Tailwind helps with building a responsive UI. Make sure to adjust the layout and styles as needed for your app’s requirements.
-Contributing
-If you would like to contribute to the development of this app, please follow these steps:
-
-Fork the repository.
-Create a new branch (git checkout -b feature-name).
-Make your changes.
-Commit your changes (git commit -am 'Add new feature').
-Push to the branch (git push origin feature-name).
-Create a new pull request.
-License
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-yaml
-Copy
-
----
-
-To create and update the **`README.md`** file:
-
-1. Open any text editor (e.g., Visual Studio Code, Notepad++).
-2. Copy and paste the code above into the editor.
-3. Save the file as `README.md` in the root directory of your project.
