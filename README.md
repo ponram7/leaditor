@@ -1,6 +1,6 @@
 # Lead Generation App (Leaditor)
 
-Leaditor is a web-based application designed for managing leads, primarily for businesses that generate and track potential customer information. Built using Django, bootstrap, and HTMX, the app offers an interactive and dynamic experience for users to manage their lead data.
+Leaditor is a web-based application designed for managing leads, primarily for businesses that generate and track potential customer information. Built using Django & bootstrap, the app offers an interactive and dynamic experience for users to manage their lead data.
 
 ## Features
 
